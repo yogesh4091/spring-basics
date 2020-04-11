@@ -2,22 +2,19 @@ pipeline {
     environment {
         PATH = 'C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.Path}'
     agent = 'any'
-    tools = {
-        maven = 'mvn'
-        jdk = 'jdk8'
-    }
+    tool name: 'mvn'
     stages = {
 
          stage ('Test') {
                     steps {
-                        echo 'Running tests'
-                        sh 'mvn clean test'
+                        print 'Running tests'
+                        sh('mvn clean test')
                     }
                 }
 
         stage ('Build') {
             steps {
-                echo 'Build'
+                print 'Build'
                 sh 'mvn clean package'
             }
         }
