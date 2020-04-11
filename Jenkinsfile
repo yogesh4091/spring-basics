@@ -2,11 +2,11 @@ pipeline {
     environment {
         PATH = 'C:\\Program Files\\Git\\usr\\bin;C:\\Program Files\\Git\\bin;${env.Path}'
     agent = 'any'
-    tools {
+    tools = {
         maven = 'mvn'
         jdk = 'jdk8'
     }
-    stages {
+    stages = {
 
          stage ('Test') {
                     steps {
