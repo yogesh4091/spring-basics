@@ -1,3 +1,2 @@
 # spring-basics
-Spring Basics
-With Jenkins
+Spring Basics With Jenkins
