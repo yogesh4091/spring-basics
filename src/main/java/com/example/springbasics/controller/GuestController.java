@@ -1,7 +1,7 @@
-package com.example.demo.controller;
+package com.example.springbasics.controller;
 
-import com.example.demo.data.entity.Guest;
-import com.example.demo.data.repository.GuestRepository;
+import com.example.springbasics.data.entity.Guest;
+import com.example.springbasics.data.repository.GuestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
