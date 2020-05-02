@@ -1,4 +1,4 @@
-package com.example.demo.data.entity;
+package com.example.springbasics.data.entity;
 
 import lombok.Data;
 
