@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class GuestDto {
+  private Long guestId;
+
   private String firstName;
 
   private String lastName;

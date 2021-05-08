@@ -9,8 +9,6 @@ import com.example.springbasics.services.GuestFilterService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,11 +17,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class GuestController {
 
-  @NonNull private final GuestRepository guestRepository;
-  @NonNull private final GuestFilterService guestFilterService;
+  private final GuestRepository guestRepository;
+  private final GuestFilterService guestFilterService;
+
+  @Autowired
+  public GuestController(GuestRepository guestRepository, GuestFilterService guestFilterService) {
+    this.guestRepository = guestRepository;
+    this.guestFilterService = guestFilterService;
+  }
 
   @GetMapping(value = "/guests")
   public List<Guest> getGuests() {
@@ -49,9 +52,9 @@ public class GuestController {
       // using DTO object since Entity should not be shared with outside world.
       @RequestBody GuestDto guest,
       // We could use default page size here.
-      @RequestParam int pageSize,
+      @RequestParam(required = false, defaultValue = "2") int pageSize,
       // default offset could be zero.
-      @RequestParam int offSet,
+      @RequestParam(required = false, defaultValue = "0") int offSet,
       // Sort by Enum
       @RequestParam SortBy sortBy) {
 
